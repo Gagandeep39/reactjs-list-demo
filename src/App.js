@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Validation from './ValidationComponent/ValidationComponent';
+import Char from './Char/Char';
 
 function App() {
   const [userInputState, setUserInputState] = useState({
@@ -15,6 +16,10 @@ function App() {
     });
   };
 
+  const charList = userInputState.userInput.split('').map((ch) => {
+    return <Char character={ch} />;
+  });
+
   return (
     <div className='App'>
       <input
@@ -25,6 +30,7 @@ function App() {
 
       <p> {userInputState.userInput} </p>
       <Validation inputLength={userInputState.userInput.length} />
+      {charList}
     </div>
   );
 }

@@ -5,14 +5,11 @@ const char = (props) => {
     display: 'inline-bock',
     padding: '16px',
     margin: '16px',
-    border: '1px solid bloack',
-    teztAlign: 'center'
-  }
-  return (
-    <div style={style}>
+    border: '1px solid black',
+    textAlign: 'center',
+  };
 
-    </div>
-  );
-}
+  return <div style={style}>{props.character}</div>;
+};
 
 export default char;
