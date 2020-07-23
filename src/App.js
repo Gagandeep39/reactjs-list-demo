@@ -16,8 +16,17 @@ function App() {
     });
   };
 
-  const charList = userInputState.userInput.split('').map((ch) => {
-    return <Char character={ch} />;
+  const deleteCharHandler = (index) => {
+    const text = userInputState.userInput.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+    setUserInputState({
+      userInput: updatedText
+    })
+  }
+
+  const charList = userInputState.userInput.split('').map((ch, index) => {
+    return <Char character={ch} key={index} click={()=>deleteCharHandler(index)}/>;
   });
 
   return (
