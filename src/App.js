@@ -26,6 +26,8 @@ function App() {
   }
 
   const charList = userInputState.userInput.split('').map((ch, index) => {
+    // Anonymous function ensure Operation is current State
+    // Prevents recreation of state
     return <Char character={ch} key={index} click={()=>deleteCharHandler(index)}/>;
   });
 
@@ -45,3 +47,17 @@ function App() {
 }
 
 export default App;
+
+// const handler = ()=>{} -> Variable hoding a function reference
+// handler() -> Calling the function
+// handler -> Passing function reference
+
+// When Function is to be executed from a different file
+// handle
+// Send data and function to other component
+// Method - 1 
+// handle.bind(this, args1, arg2)
+// MEthod - 2
+// () => handle(arg)
+// Here an anomymous function with method reference is sent to other file
+// When certain operation is performed, the method referenc will be executed
